@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Amount</td>
+        <td>From Currency</td>
+        <td>To Currency</td>
+    </tr>
+    
+    <tr>
+        <td><input style="height: 25px;" type="text" id="dauvao"></td>
+        <td><select style="width: 160px;height: 30px;" name="" id="From">
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+
+        </select></td>
+    
+        <td><select style="width: 160px;height: 30px;" name="" id="To">
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+
+        </select></td>
+        <td><button style="height: 30px;" onclick="chuyendoitiente()">Convert</button>
+        </td>
+    </tr>
+
+
+
+
+
+
+
+
+</table>
+    
+    <script>
+    function chuyendoitiente() {
+        let giatrivao = document.getElementById('dauvao').value;
+        let From = document.getElementById('From').value;
+        let To = document.getElementById('To').value;
+
+        
+        if (From == To) {
+            alert(giatrivao)
+        }
+
+        if (From == "VND" && To == "USD") {
+            alert(giatrivao/23820);
+        }
+    
+        if (From == "VND" && To == "EUR") {
+            alert(giatrivao/25936)
+        }
+    
+        if (To == "VND" && From == "USD") {
+            alert(giatrivao*23820);
+        }
+
+        if (To == "VND" && From == "EUR") {
+            alert(giatrivao*25936);
+        }
+    
+    
+    }
+
+        
+
+    </script>
+
+
+
+
+</body>
+
+</html>
