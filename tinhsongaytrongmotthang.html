@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="name">
+    <button onclick="tinhsongay()">Tính số ngày</button>
+    <p id="ketqua"></p> 
+</body>
+
+<script>
+    function tinhsongay() {
+        let name = document.getElementById("name").value
+        let result = ""
+        switch(name) {
+            case "Tháng 1":
+            case "Tháng 3":
+            case "Tháng 5":
+            case "Tháng 7":
+            case "Tháng 8":
+            case "Tháng 10":
+            case "Tháng 12":
+                result += (name + ": có 31 ngày")
+                break
+            case "Tháng 2":
+                result += (name + ": có 28 hoặc 29 ngày")
+                break
+            case "Tháng 4":
+            case "Tháng 6":
+            case "Tháng 9":
+            case "Tháng 11":
+                result += (name + ": có 30 ngày")
+                break
+        }
+        document.getElementById("ketqua").innerHTML = result
+}
+
+</script>
+</html>

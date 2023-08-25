@@ -4,80 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        p {
+            color: blue;
+        }
+        table {
+            width: 600px;
+        }
+
+        th {
+            width: 25%;     
+        }
+
+        select {
+            width: 85%;
+            margin-left: 10px;
+            height: 27px;
+        }
+
+        button {
+            font-weight: bold;
+            color: white;
+            background-color: blue;
+            border-radius: none;
+            width: 70px;
+            height: 27px;
+            
+        }
+
+        input {
+            height: 22px;
+            
+        }
+
+
+    </style>
 </head>
 <body>
-<table>
-    <tr>
-        <td>Amount</td>
-        <td>From Currency</td>
-        <td>To Currency</td>
-    </tr>
-    
-    <tr>
-        <td><input style="height: 25px;" type="text" id="dauvao"></td>
-        <td><select style="width: 160px;height: 30px;" name="" id="From">
-            <option value="VND">VND</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="money"></td>
+            <td><select name="" id="from">
+                <option value="1">USD</option>
+                <option value="23000">VND</option>
+                <option value="1000">Yên</option>
+                <option value="2300">Won</option>
+            </select></td>
+            
+            <td><select name="" id="to">
+                <option value="1">USD</option>
+                <option value="23000">VND</option>
+                <option value="1000">Yên</option>
+                <option value="2300">Won</option>
+            </select></td>
 
-        </select></td>
-    
-        <td><select style="width: 160px;height: 30px;" name="" id="To">
-            <option value="VND">VND</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
+            <td><button onclick="changeMoney()">Convert</button></td>
+        </tr>
 
-        </select></td>
-        <td><button style="height: 30px;" onclick="chuyendoitiente()">Convert</button>
-        </td>
-    </tr>
-
-
-
-
-
-
-
-
-</table>
-    
-    <script>
-    function chuyendoitiente() {
-        let giatrivao = document.getElementById('dauvao').value;
-        let From = document.getElementById('From').value;
-        let To = document.getElementById('To').value;
-
-        
-        if (From == To) {
-            alert(giatrivao)
-        }
-
-        if (From == "VND" && To == "USD") {
-            alert(giatrivao/23820);
-        }
-    
-        if (From == "VND" && To == "EUR") {
-            alert(giatrivao/25936)
-        }
-    
-        if (To == "VND" && From == "USD") {
-            alert(giatrivao*23820);
-        }
-
-        if (To == "VND" && From == "EUR") {
-            alert(giatrivao*25936);
-        }
-    
-    
-    }
-
-        
-
-    </script>
-
-
-
-
+    </table>
+    <p>Result: <span id="result"></span></p>
+<!-- thẻ span: chứa giá trị của kết quả -->
 </body>
 
+<script>
+    // coi 1 đồng tiền là mệnh giá chung và các đồng tiền khác sẽ quy đổi tỷ giá về đồng tiền đó
+    // vd USD =1
+    // VND = 23000; Yên Nhật = 1000; Won = 2300; Bath = 4500
+    // 1 yên => VND <=> 1 * 23000 / 1000
+    // 1 Won => VND <=> 1 * 23000 / 2300
+
+    function changeMoney() {
+        let money = +document.getElementById("money").value
+        let from = +document.getElementById("from").value
+        let to = +document.getElementById("to").value
+
+        let result = money * to / from
+        document.getElementById("result").innerHTML = result
+        // in ra thẻ p(id: result) bằng result(= money * to / from)
+    }
+</script>
 </html>
