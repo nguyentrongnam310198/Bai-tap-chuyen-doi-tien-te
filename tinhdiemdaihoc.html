@@ -9,24 +9,64 @@
     <h2><b>TÍNH ĐIỂM ĐẠI HỌC KHỐI D</b></h2>
     <table>
         <tr>
-
-
-            
+            <td>Môn Toán</td>
+            <td><input type="text" id="toan"></td>
+        </tr>
+        
+        <tr>
+            <td>Môn Văn</td>
+            <td><input type="text" id="van"></td>
         </tr>
 
+        <tr>
+            <td>Môn Anh</td>
+            <td><input type="text" id="tienganh"></td>
+        </tr>
 
+        <tr>
+            <td>Khu Vực</td>
+            <td><select name="" id="khuvuc">
+                <option value="0.75">KV1</option>
+                <option value="0.5">KV1-NT</option>
+                <option value="0.25">KV2</option>
+                <option value="0">KV3</option>
+            </select></td>
+        </tr>
 
-
-
-
-
-
-
-
-
-
-
+        <tr><td><button onclick="tinhdiem()">Tính Điểm</button></td></tr>
 
     </table>
+    <p id="result" style="color: cornflowerblue;"></p>
+
+    <script>
+        function tinhdiem() {
+            let toan = +document.getElementById("toan").value
+            let van = +document.getElementById("van").value
+            let tienganh = +document.getElementById("tienganh").value
+            let khuvuc = +document.getElementById("khuvuc").value
+            
+            if (toan < 0 || toan > 10 || van < 0 || van > 10 || tienganh < 0 || tienganh > 10 || toan < 0 || toan > 10) {
+                alert("Điểm thi không hợp lệ!")
+            } else {
+                let point = toan + van + tienganh + khuvuc
+                document.getElementById("result").innerHTML = "Tổng điểm đại học khối D của bạn là: " + point
+            }
+
+            
+
+        
+
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+
 </body>
 </html>
